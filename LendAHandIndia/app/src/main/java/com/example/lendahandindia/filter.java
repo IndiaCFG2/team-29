@@ -5,87 +5,59 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.lendahandindia.Modal.lesson;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class student extends AppCompatActivity {
+public class filter extends AppCompatActivity {
 
-    public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
-
-    RecyclerView mLessonlist;
     FirebaseFirestore db;
-    FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
-    SearchView sv;
-
+    FirestoreRecyclerAdapter<lesson, student.LessonViewHolder> adapter;
+    String cls;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_filter);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAuth=FirebaseAuth.getInstance();
-
-        setContentView(R.layout.activity_student);
-        sv=(SearchView) findViewById(R.id.sv);
-        mLessonlist=findViewById(R.id.lesson_list);
-        FirebaseApp.initializeApp(getApplicationContext());
         LoadData();
-        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent =new Intent(getApplicationContext(),filter.class);
-                intent.putExtra("cls",query);
-                startActivity(intent);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
     }
-    private void LoadData() {
+
+    private void LoadData()
+    {
         db= FirebaseFirestore.getInstance();
 
-        Query query=db.collection("lesson");
+        Query query=db.collection("lesson"). whereEqualTo("grade",cls);
 
         Log.i("result", String.valueOf(query));
         FirestoreRecyclerOptions<lesson> options=new FirestoreRecyclerOptions.Builder<lesson>()
                 .setQuery(query,lesson.class)
                 .build();
 
-        adapter=new FirestoreRecyclerAdapter<lesson,LessonViewHolder>(options) {
+        adapter=new FirestoreRecyclerAdapter<lesson, student.LessonViewHolder>(options) {
 
 
             @NonNull
             @Override
-            public LessonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public student.LessonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.les_row,parent,false);
-                return new LessonViewHolder(view);
+                return new student.LessonViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull final LessonViewHolder holder, final int position, @NonNull lesson model) {
+            protected void onBindViewHolder(@NonNull final student.LessonViewHolder holder, final int position, @NonNull lesson model) {
 
 
                 holder.setChapter(model.getChapter());
@@ -108,6 +80,7 @@ public class student extends AppCompatActivity {
 
 
     }
+
 
     public static class LessonViewHolder extends RecyclerView.ViewHolder
     {
@@ -141,43 +114,6 @@ public class student extends AppCompatActivity {
         }
 
 
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.ex_menu,menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId())
-        {
-            case R.id.queries:
-                Intent intent = new Intent(getApplicationContext(), DoubtsFourmActivity.class);
-                startActivity(intent);
-                return  true;
-            case R.id.pro:
-                Intent intent9 = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(intent9);
-                return  true;
-            case R.id.logout:
-                mAuth.signOut();
-                SharedPreferences.Editor editor=getSharedPreferences(MY_PREFERENCE,MODE_PRIVATE).edit();
-                editor.putBoolean("user", false);
-                editor.commit();
-                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent2);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
 
     }
     @Override
