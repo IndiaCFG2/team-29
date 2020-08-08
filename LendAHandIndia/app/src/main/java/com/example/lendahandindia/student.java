@@ -9,8 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class student extends AppCompatActivity {
 
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,8 @@ public class student extends AppCompatActivity {
             case R.id.queries:
                 Intent intent = new Intent(getApplicationContext(), DoubtsFourmActivity.class);
                 startActivity(intent);
+            case R.id.logout:
+                mAuth.signOut();
             default:
                 return super.onOptionsItemSelected(item);
 

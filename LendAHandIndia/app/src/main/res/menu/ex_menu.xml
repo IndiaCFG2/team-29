@@ -6,4 +6,7 @@
         android:icon="@drawable/qanda"
         android:title="Post your queries"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/logout"
+        android:title="Log Out"
+        app:showAsAction="never"/>
 </menu>
