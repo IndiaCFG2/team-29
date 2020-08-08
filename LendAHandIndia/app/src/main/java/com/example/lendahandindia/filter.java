@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lendahandindia.Modal.lesson;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -24,7 +28,7 @@ public class filter extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     FirestoreRecyclerAdapter<lesson, student.LessonViewHolder> adapter;
-    String cls;
+    String cls,url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +72,25 @@ public class filter extends AppCompatActivity {
                 holder.setDescription(model.getDescription());
                 holder.setTeacher(model.getTeacher());
 
+                url=model.getUrl();
+                holder.itemView.findViewById(R.id.res_download).setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    //On click function
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(),"Downloading! ",Toast.LENGTH_SHORT).show();
+                        DownloadManager downloadmanager = (DownloadManager) getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+                        Uri uri = Uri.parse(url);
+                        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+                        request.setDestinationInExternalFilesDir(getApplicationContext(), "/downloads", "PDF Document" + ".pdf");
+
+                        downloadmanager.enqueue(request);
+
+                    }
+                });
+
 
 
             }
@@ -103,7 +126,7 @@ public class filter extends AppCompatActivity {
         public void setGrade(String grade)
         {
             TextView resgrade =(TextView) mView.findViewById(R.id.res_class);
-            resgrade.setText("Grade :"+ grade);
+            resgrade.setText("Grade : "+ grade);
         }
         public void setDescription(String descripton)
         {
@@ -113,7 +136,7 @@ public class filter extends AppCompatActivity {
         public void setTeacher(String teacher)
         {
             TextView resteacher=(TextView) mView.findViewById(R.id.res_teacher);
-            resteacher.setText("Teacher :"+teacher);
+            resteacher.setText("Teacher : "+teacher);
         }
 
 
