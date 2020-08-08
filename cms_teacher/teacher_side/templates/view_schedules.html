@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Schedules</title>
+	<style type="text/css">
+		.tabco2 {
+  font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco2 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco3 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco3 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco4 {
+  background: #C0C0C0;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  color: black;
+}
+
+th.tabco4 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco5 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco5 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+	</style>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<table class="table table-condensed table-hover">
+	<thead>
+		<tr>
+			<th class="tabco2" >Date</th>
+			<th class="tabco3">Time</th>
+			<th class="tabco4" > Description </th>
+			<th class="tabco5" > Classroom </th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in schedule %}
+			<tr class = "row_format">
+				<td class = "tabco2">{{ i.date }}</td>
+				<td class = "tabco3">{{ i.time }}</td>
+		        <td class = "tabco4">{{ i.desc }}</td>
+		        <td class = "tabco5">{{ i.classroom }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+</body>
+</html>

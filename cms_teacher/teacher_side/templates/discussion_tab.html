@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Discussion Tab</title>
+	<style type="text/css">
+		.tabco2 {
+  font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco2 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco3 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco3 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco4 {
+  background: #C0C0C0;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  color: black;
+}
+
+th.tabco4 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco5 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco5 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+	</style>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2>Questions and Answers</h2>
+	{% for i in questions %}
+	        <p>{{ i.doubt_id }}</p>
+			<p>{{ i.doubt_desc }}</p>
+			{% if i.doubt_ans %}
+				<p>{{ i.doubt_ans }}</p>
+			{% else %}
+				<form action = "/submit_answer/" method = "POST">
+					{% csrf_token %}
+					<input type="text" name="answer">
+					<button type="submit">Submit</button>
+				</form>
+			{% endif %}
+	{% endfor %}
+</table>
+
+</body>
+</html>

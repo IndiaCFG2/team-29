@@ -25,5 +25,8 @@ urlpatterns = [
     path('logout/', teacher_side_views.logout, name = "logout"),
     path('student_login/', student_side_views.student_login, name = 'student_login'),
     path('student_signup/', student_side_views.student_signup, name = 'student_signup'),
-    path('schedule/', teacher_side_views.schedule, name = 'schedule')
+    path('schedule/', teacher_side_views.schedule, name = 'schedule'),
+    path('view_schedules/', teacher_side_views.view_schedules, name = "view_schedules"),
+    path('discussion_tab/', teacher_side_views.discussion_tab, name = "discussion_tab"),
+    path('submit_answer/', teacher_side_views.submit_answer, name = "submit_answer")
 ]
