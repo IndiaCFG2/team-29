@@ -2,8 +2,79 @@
 <html>
 <head>
 	<title>Calendar</title>
+	<style type="text/css">
+		.tabco2 {
+  font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco2 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco3 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco3 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco4 {
+  background: #C0C0C0;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  color: black;
+}
+
+th.tabco4 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco5 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco5 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+	</style>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+	<div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
+      <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
+      <a href="https://www.lend-a-hand-india.org/about.php">About</a>
+    </div>
 	<h2>Schedule your tasks here!</h2>
 	<form action="/schedule/" method="post">
 	  {% csrf_token %}

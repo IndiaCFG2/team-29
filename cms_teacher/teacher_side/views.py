@@ -83,7 +83,7 @@ def discussion_tab(request):
 	dic = []
 	for i in databaseInstance:
 		temp = i.val()
-		obj = {'doubt_desc' : temp['doubts'], 'doubt_ans' : temp['answer'], 'doubt_id' : temp['id']}
+		obj = {'doubt_ans' : temp['answer'], 'doubt_desc' : temp['doubts'], 'doubt_id' : temp['id'], 'name' : temp['name']}
 		dic.append(obj)
 	return render(request, 'discussion_tab.html', {'questions' : dic})
 
@@ -91,18 +91,8 @@ def submit_answer(request):
 	if(request.method == 'POST'):
 		ans = request.POST.get('answer')
 		uid = request.POST.get('uid')
-		print("Hello :", ans, uid)
-		database.child("Doubts").child(uid).update({
-			'answer' : str(ans)
-		})
-		databaseInstance = firebase.database().child("Doubts").get().each()
-		dic = []
-		for i in databaseInstance:
-			temp = i.val()
-			obj = {'doubt_desc' : temp['doubts'], 'doubt_ans' : temp['answer'], 'doubt_id' : temp['id']}
-			dic.append(obj)
-		return render(request, 'discussion_tab.html', {'questions' : dic})
-	else:
-		return render(request, 'discussion_tab.html')
+		database.child("Doubts").child(uid).child('answer').set(ans)
+		return render(request, 'teacher_dashboard.html')
+	return render(request, 'discussion_tab.html')
 
 
