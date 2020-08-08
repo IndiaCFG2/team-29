@@ -24,5 +24,6 @@ urlpatterns = [
     path('teacher_signup/', teacher_side_views.teacher_signup_view, name = 'teacher_signup'),
     path('logout/', teacher_side_views.logout, name = "logout"),
     path('student_login/', student_side_views.student_login, name = 'student_login'),
-    path('student_signup/', student_side_views.student_signup, name = 'student_signup')
+    path('student_signup/', student_side_views.student_signup, name = 'student_signup'),
+    path('schedule/', teacher_side_views.schedule, name = 'schedule')
 ]

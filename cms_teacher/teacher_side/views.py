@@ -52,6 +52,7 @@ def logout(request):
 	auth.logout(request)
 	return render(request, 'home.html')
 
-def student_redirect(request):
-	return redirect('/student_signup/')
+
+def schedule(request):
+	return render(request, 'calendar.html')
 
