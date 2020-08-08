@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DoubtsFourmActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doubts Fourm"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/doubt_content"
+        android:hint="Enter your doubt here"
+        android:maxLines="10"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="Post Doubt"
+            android:textColor="@color/colorPrimaryDark"
+            
+            android:id="@+id/post_Doubt"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
