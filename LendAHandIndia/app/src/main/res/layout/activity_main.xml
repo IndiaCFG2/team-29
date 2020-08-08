@@ -24,7 +24,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/roundshapebtn"
         android:onClick="login"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/roundshapebtn"
         android:onClick="register"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 

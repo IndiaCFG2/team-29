@@ -1,0 +1,33 @@
+[
+{
+  "model": "courses.subject",
+  "pk": 1,
+  "fields": {
+    "title": "Game Design",
+    "slug": "game-design"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 2,
+  "fields": {
+    "title": "Catering Management",
+    "slug": "catering-management"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 3,
+  "fields": {
+    "title": "Physical Education",
+    "slug": "physical-education"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 4,
+  "fields": {
+    "title": "Electrical Technician",
+    "slug": "electrical-technician"
+  }
+}
