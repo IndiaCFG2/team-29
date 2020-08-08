@@ -38,6 +38,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
 
     private EditText doubts;
     private TextView post;
+    private TextView sname;
 
 
     private RecyclerView recyclerView;
@@ -53,6 +54,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
 
 
         doubts=findViewById(R.id.doubt);
+        sname=findViewById(R.id.name);
         post=findViewById(R.id.post_doubt);
         recyclerView=findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -70,9 +72,10 @@ public class DoubtsFourmActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String studentDoubt=doubts.getText().toString();
-                if(!TextUtils.isEmpty(studentDoubt))
+                final String studentName=sname.getText().toString();
+                if(!TextUtils.isEmpty(studentDoubt)&&!TextUtils.isEmpty(studentName))
                 {
-                    postDoubt(studentDoubt);
+                    postDoubt(studentDoubt,studentName);
                 }
                 else
                 {
@@ -86,7 +89,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
 
 
     private void getdoubts() {
-        FirebaseDatabase.getInstance().getReference().child("Doubts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Doubts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 doubtslist.clear();
@@ -104,20 +107,22 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         });
     }
 
-    private void postDoubt(final String studentDoubt) {
+    private void postDoubt(final String studentDoubt,final String name) {
 
         HashMap<String,Object> map=new HashMap<>();
 
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Doubts").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Doubts");
 
 
 
         String id=ref.push().getKey();
         map.put("id",id);
         map.put("doubts",studentDoubt);
+        map.put("name",name);
         map.put("answer","");
 
         doubts.setText("");
+        sname.setText("");
 
         ref.child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

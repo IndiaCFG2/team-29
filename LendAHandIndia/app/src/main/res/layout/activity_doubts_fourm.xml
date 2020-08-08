@@ -30,31 +30,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:id="@+id/bottom"
-        android:padding="5dp">
-
+        android:orientation="vertical">
         <EditText
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:hint="Doubts.."
-            android:id="@+id/doubt"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_toLeftOf="@id/post_doubt"
-            android:background="@android:color/transparent"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/post_doubt"
-            android:text="Post Doubt"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:textColor="@color/colorPrimaryDark"
-            tools:ignore="RtlCompat"/>
+            android:hint="Name"
+            android:id="@+id/name"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:hint="Doubts.."
+                android:id="@+id/doubt"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toLeftOf="@id/post_doubt"
+                android:background="@android:color/transparent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/post_doubt"
+                android:text="Post Doubt"
+
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorPrimaryDark"
+                tools:ignore="RtlCompat"/>
+        </LinearLayout>
+
+
     </LinearLayout>
+
+
+
 
 
 </RelativeLayout>
