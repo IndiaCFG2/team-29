@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,6 +20,7 @@ public class student extends AppCompatActivity {
     public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
 
+    private Button profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,14 @@ public class student extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         setContentView(R.layout.activity_student);
+
+        profile=findViewById(R.id.profile);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(student.this,ProfileActivity.class));
+            }
+        });
 
     }
 
