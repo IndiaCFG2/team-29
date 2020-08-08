@@ -2,30 +2,129 @@ package com.example.lendahandindia;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.lendahandindia.Modal.lesson;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class student extends AppCompatActivity {
 
     public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
-
+    RecyclerView mLessonlist;
+    FirebaseFirestore db;
+    FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mAuth=FirebaseAuth.getInstance();
+
         setContentView(R.layout.activity_student);
+
+        mLessonlist=findViewById(R.id.lesson_list);
+        FirebaseApp.initializeApp(getApplicationContext());
+        LoadData();
+
+    }
+    private void LoadData() {
+        db= FirebaseFirestore.getInstance();
+
+        Query query=db.collection("lesson");
+
+        Log.i("result", String.valueOf(query));
+        FirestoreRecyclerOptions<lesson> options=new FirestoreRecyclerOptions.Builder<lesson>()
+                .setQuery(query,lesson.class)
+                .build();
+
+        adapter=new FirestoreRecyclerAdapter<lesson,LessonViewHolder>(options) {
+
+
+            @NonNull
+            @Override
+            public LessonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.les_row,parent,false);
+                return new LessonViewHolder(view);
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull final LessonViewHolder holder, final int position, @NonNull lesson model) {
+
+
+                holder.setChapter(model.getChapter());
+                holder.setGrade(model.getGrade());
+                holder.setDescription(model.getDescription());
+                holder.setTeacher(model.getTeacher());
+
+
+
+            }
+
+
+        };
+
+        final RecyclerView mHouseList = (RecyclerView) findViewById(R.id.lesson_list);
+
+        mHouseList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        mHouseList.setAdapter(adapter);
+
+
+    }
+
+    public static class LessonViewHolder extends RecyclerView.ViewHolder
+    {
+        View mView;
+
+
+        public LessonViewHolder(@NonNull View itemView) {
+            super(itemView);
+            mView=itemView;
+        }
+
+        public void setChapter(String chapter)
+        {
+            TextView reschapter =(TextView) mView.findViewById(R.id.res_chapter);
+            reschapter.setText(chapter);
+        }
+        public void setGrade(String chapter)
+        {
+            TextView resgrade =(TextView) mView.findViewById(R.id.res_class);
+            resgrade.setText(chapter);
+        }
+        public void setDescription(String chapter)
+        {
+            TextView resdesc =(TextView) mView.findViewById(R.id.res_description);
+            resdesc.setText(chapter);
+        }
+        public void setTeacher(String chapter)
+        {
+            TextView resteacher=(TextView) mView.findViewById(R.id.res_teacher);
+            resteacher.setText(chapter);
+        }
+
 
     }
 
@@ -60,5 +159,16 @@ public class student extends AppCompatActivity {
 
         }
 
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
 }
