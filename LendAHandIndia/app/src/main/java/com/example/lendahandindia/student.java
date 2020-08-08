@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lendahandindia.Modal.lesson;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -36,6 +40,7 @@ public class student extends AppCompatActivity {
     FirebaseFirestore db;
     FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
     SearchView sv;
+    String url;
 
 
     @Override
@@ -94,7 +99,24 @@ public class student extends AppCompatActivity {
                 holder.setGrade(model.getGrade());
                 holder.setDescription(model.getDescription());
                 holder.setTeacher(model.getTeacher());
+                url=model.getUrl();
+                holder.itemView.findViewById(R.id.res_download).setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    //On click function
+                    public void onClick(View view) {
+                         Toast.makeText(getApplicationContext(),"Downloading! ",Toast.LENGTH_SHORT).show();
+                            DownloadManager downloadmanager = (DownloadManager) getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+                            Uri uri = Uri.parse(url);
+                            DownloadManager.Request request = new DownloadManager.Request(uri);
 
+                            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+                                request.setDestinationInExternalFilesDir(getApplicationContext(), "/downloads", "PDF Document" + ".pdf");
+
+                            downloadmanager.enqueue(request);
+
+                    }
+                });
 
 
 
