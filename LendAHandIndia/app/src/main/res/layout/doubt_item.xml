@@ -14,13 +14,24 @@
             android:layout_height="20dp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/email"
-            android:text="Student Mail"/>
+            android:id="@+id/name"
+            android:text="Student Name"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:padding="5dp"
             android:text="Doubt"
             android:id="@+id/doubt"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/answer"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:padding="5dp"/>
     </LinearLayout>
 
 </LinearLayout>

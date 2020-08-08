@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +18,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lendahandindia.Modal.lesson;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -34,6 +39,8 @@ public class student extends AppCompatActivity {
     RecyclerView mLessonlist;
     FirebaseFirestore db;
     FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
+    SearchView sv;
+    String url;
 
 
     @Override
@@ -43,11 +50,25 @@ public class student extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
 
         setContentView(R.layout.activity_student);
-
-
+        sv=(SearchView) findViewById(R.id.sv);
+        sv.setQueryHint("Search for your class");
         mLessonlist=findViewById(R.id.lesson_list);
         FirebaseApp.initializeApp(getApplicationContext());
         LoadData();
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent =new Intent(getApplicationContext(),filter.class);
+                intent.putExtra("cls",query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
     }
     private void LoadData() {
@@ -78,6 +99,24 @@ public class student extends AppCompatActivity {
                 holder.setGrade(model.getGrade());
                 holder.setDescription(model.getDescription());
                 holder.setTeacher(model.getTeacher());
+                url=model.getUrl();
+                holder.itemView.findViewById(R.id.res_download).setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    //On click function
+                    public void onClick(View view) {
+                         Toast.makeText(getApplicationContext(),"Downloading! ",Toast.LENGTH_SHORT).show();
+                            DownloadManager downloadmanager = (DownloadManager) getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+                            Uri uri = Uri.parse(url);
+                            DownloadManager.Request request = new DownloadManager.Request(uri);
+
+                            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+                                request.setDestinationInExternalFilesDir(getApplicationContext(), "/downloads", "PDF Document" + ".pdf");
+
+                            downloadmanager.enqueue(request);
+
+                    }
+                });
 
 
 

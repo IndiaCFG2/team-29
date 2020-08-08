@@ -41,6 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         register=findViewById(R.id.register);
         email=findViewById(R.id.email);
         phoneNumber=findViewById(R.id.phone_number);
@@ -48,6 +50,13 @@ public class RegisterActivity extends AppCompatActivity {
         haveAcc=findViewById(R.id.hava_acc);
         password=findViewById(R.id.password);
         firebaseAuth= FirebaseAuth.getInstance();
+
+        haveAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this,signin.class));
+            }
+        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -43,13 +43,19 @@ public class DoubtsFourmAdapter extends RecyclerView.Adapter<DoubtsFourmAdapter.
 
         fUser= FirebaseAuth.getInstance().getCurrentUser();
 
-        final DoubtsFourmModal doubts=mDoubts.get(position);
+        final DoubtsFourmModal doubt=mDoubts.get(position);
 
         String email=fUser.getEmail();
 
-        holder.email.setText(email);
+        holder.name.setText(doubt.getName());
 
-        holder.doubts.setText(doubts.getDoubts());
+        holder.doubts.setText(doubt.getDoubts());
+
+        if(doubt.getAnswer()!=null)
+        {
+            holder.answer.setText(doubt.getAnswer());
+            holder.answer.setVisibility(View.VISIBLE);
+        }
 
 
     }
@@ -61,14 +67,16 @@ public class DoubtsFourmAdapter extends RecyclerView.Adapter<DoubtsFourmAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView email;
+        public TextView name;
         public TextView doubts;
+        public TextView answer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            email=itemView.findViewById(R.id.email);
+            name=itemView.findViewById(R.id.name);
             doubts=itemView.findViewById(R.id.doubt);
+            answer=itemView.findViewById(R.id.answer);
         }
     }
 
