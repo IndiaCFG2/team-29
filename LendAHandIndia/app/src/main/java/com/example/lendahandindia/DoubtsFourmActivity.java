@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -77,7 +78,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
     }
 
     private void getdoubts() {
-        FirebaseDatabase.getInstance().getReference().child("Comments").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Doubts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 doubtslist.clear();
@@ -94,7 +95,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         });
     }
 
-    private void postDoubt(String studentDoubt) {
+    private void postDoubt(final String studentDoubt) {
 
         HashMap<String,Object> map=new HashMap<>();
 
@@ -111,6 +112,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(DoubtsFourmActivity.this,"Doubts Added",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(DoubtsFourmActivity.this,student.class));
                 }
                 else{
                     Toast.makeText(DoubtsFourmActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();

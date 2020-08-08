@@ -45,6 +45,10 @@ public class DoubtsFourmAdapter extends RecyclerView.Adapter<DoubtsFourmAdapter.
 
         final DoubtsFourmModal doubts=mDoubts.get(position);
 
+        String email=fUser.getEmail();
+
+        holder.email.setText(email);
+
         holder.doubts.setText(doubts.getDoubts());
 
 

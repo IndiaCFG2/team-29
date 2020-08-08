@@ -30,6 +30,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20sp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:id="@+id/password"/>
     <EditText
         android:layout_width="300dp"
