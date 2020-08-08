@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Teacher Dashboard</title>
-</head>
-<body>
-	Welcome {{teacher_name}}
-	<button type = "button" onclick = "location.href = '{% url 'logout'%}'">Logout</button>
-</body>
+  <head>
+    <title>Teacher Dashboard</title>
+  </head>
+  <body>
+    Welcome {{teacher_name}} <br />
+    <button type="button" onclick="location.href = '{% url 'logout'%}'">
+      Logout
+    </button>
+  </body>
 </html>
