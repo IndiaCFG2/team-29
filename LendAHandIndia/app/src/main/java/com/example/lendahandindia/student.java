@@ -45,6 +45,7 @@ public class student extends AppCompatActivity {
 
         setContentView(R.layout.activity_student);
         sv=(SearchView) findViewById(R.id.sv);
+        sv.setQueryHint("Search for your class");
         mLessonlist=findViewById(R.id.lesson_list);
         FirebaseApp.initializeApp(getApplicationContext());
         LoadData();

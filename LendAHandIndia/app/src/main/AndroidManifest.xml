@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".filter"
             android:parentActivityName=".student"/>
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".student"/>
         <activity android:name=".student" />
         <activity android:name=".DoubtsFourmActivity" />
         <activity android:name=".signin" />
