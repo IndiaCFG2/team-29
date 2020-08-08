@@ -67,7 +67,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
+            android:background="@drawable/roundshapebtn"
             android:layout_gravity="center"
             android:text="Save"
             android:layout_margin="20dp"
