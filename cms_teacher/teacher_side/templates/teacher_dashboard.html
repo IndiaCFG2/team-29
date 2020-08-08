@@ -23,28 +23,38 @@
       </button>
     </div>
 
+    <div>
+      <input class="ml-3" type="file" id="photo" />
+      <button class="btn btn-primary" onclick="uploadImage()">
+        Upload Image
+      </button>
+    </div>
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
-
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
-        authDomain: "codeforgood-54cec.firebaseapp.com",
-        databaseURL: "https://codeforgood-54cec.firebaseio.com",
-        projectId: "codeforgood-54cec",
-        storageBucket: "codeforgood-54cec.appspot.com",
-        messagingSenderId: "953684615576",
-        appId: "1:953684615576:web:cb0ae9bb9d1e4bebcfcbed",
-        measurementId: "G-QEZS1EDTWK",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
   </body>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
+      authDomain: "codeforgood-54cec.firebaseapp.com",
+      databaseURL: "https://codeforgood-54cec.firebaseio.com",
+      projectId: "codeforgood-54cec",
+      storageBucket: "codeforgood-54cec.appspot.com",
+      messagingSenderId: "953684615576",
+      appId: "1:953684615576:web:cb0ae9bb9d1e4bebcfcbed",
+      measurementId: "G-QEZS1EDTWK",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+  </script>
 </html>
