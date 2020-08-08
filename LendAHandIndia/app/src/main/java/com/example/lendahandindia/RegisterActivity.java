@@ -49,6 +49,13 @@ public class RegisterActivity extends AppCompatActivity {
         password=findViewById(R.id.password);
         firebaseAuth= FirebaseAuth.getInstance();
 
+        haveAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this,signin.class));
+            }
+        });
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
