@@ -15,4 +15,4 @@ firebaseConfig = {
 # firebase = pyrebase.intialize_app(firebaseConfig)
 
 def setUpDatabase(request):
-	return HttpResponse("Initialized DB")
+	return render(request, 'teacher_side/teacher_sign_up.html')
