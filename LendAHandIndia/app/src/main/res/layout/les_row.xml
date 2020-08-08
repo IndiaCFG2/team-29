@@ -5,6 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="20dp"
     android:layout_marginTop="20dp"
+    app:cardCornerRadius="12px"
+    android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+    android:outlineSpotShadowColor="@color/colorPrimaryDark"
     android:layout_marginRight="20dp">
 
 
@@ -18,24 +21,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:padding="10dp"
             android:textColor="#0B0A0A"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/res_class"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/res_teacher"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/res_description"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
@@ -43,8 +50,10 @@
         <ImageButton
             android:id="@+id/res_download"
             android:layout_width="50dp"
+            android:background="@drawable/button_background"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:layout_margin="5dp"
             app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
 
     </LinearLayout>
