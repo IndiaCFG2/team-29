@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class signin extends AppCompatActivity {
     private FirebaseAuth mAuth;
-
+    public static final String MY_PREFERENCE="com.example.restaurant.user";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,12 @@ public class signin extends AppCompatActivity {
 
     }
     public void login(View view) {
+        SharedPreferences u =getSharedPreferences(MY_PREFERENCE,MODE_PRIVATE);
+        if(u.getBoolean("user",false))
+        {
+            Intent intent3 =new Intent(getApplicationContext(), student.class);
+            startActivity(intent3);
+        }
         TextView emailtextview = (TextView) findViewById(R.id.email);
         TextView pwdtextview = (TextView) findViewById(R.id.password);
 
@@ -57,7 +63,9 @@ public class signin extends AppCompatActivity {
         else
             Toast.makeText(getApplicationContext(),"Email and password shouldn't be empty",Toast.LENGTH_SHORT).show();
 
-
+        SharedPreferences.Editor editor=getSharedPreferences(MY_PREFERENCE,MODE_PRIVATE).edit();
+        editor.putBoolean("user", true);
+        editor.commit();
 
     }
 
