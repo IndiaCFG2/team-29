@@ -8,6 +8,8 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 
+*.sqlite3
+
 # Firebase cache
 .firebase/
 
