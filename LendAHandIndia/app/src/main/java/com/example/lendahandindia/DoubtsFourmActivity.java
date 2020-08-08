@@ -72,9 +72,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
                 }
             }
         });
-
         getdoubts();
-
     }
 
     private void getdoubts() {
@@ -106,7 +104,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         map.put("id",id);
         map.put("doubts",studentDoubt);
 
-        doubts.setText(" ");
+        doubts.setText("");
 
         ref.child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
