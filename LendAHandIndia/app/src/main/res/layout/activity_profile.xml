@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/shade"
     tools:context=".ProfileActivity">
 
     <RelativeLayout
@@ -27,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="44dp"
-            android:src="@drawable/ic_action_name"
+            app:srcCompat="@drawable/ic_action_name"
             tools:ignore="RtlCompat" />
 
     </RelativeLayout>
