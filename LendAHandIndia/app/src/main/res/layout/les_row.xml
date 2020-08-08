@@ -32,21 +32,21 @@
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/textview" />
 
         <TextView
             android:id="@+id/res_teacher"
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/textview" />
 
         <TextView
             android:id="@+id/res_description"
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/textview" />
 
         <ImageButton
             android:id="@+id/res_download"
