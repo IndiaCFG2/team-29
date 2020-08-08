@@ -69,7 +69,6 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:background="@drawable/roundshapebtn"
             android:layout_gravity="center"
             android:text="Save"
@@ -78,17 +77,6 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:textColor="#FFFF"
-            android:id="@+id/save"
-=======
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:background="@drawable/roundshapebtn"
-            android:text="@string/save"
-            android:textColor="@color/blue"
-            android:textSize="18sp"
->>>>>>> eb9aa40c182b1d0d09f8cd422ef68a783d4fe3d1
             tools:ignore="RtlCompat" />
 
     </LinearLayout>

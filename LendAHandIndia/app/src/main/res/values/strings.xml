@@ -4,8 +4,6 @@
     <string name="save">Save</string>
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
-    <string name="register">Register</string>
-    <string name="class_name">Class Name</string>
     <string name="already_have_an_account">Already have an Account?</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
@@ -13,7 +11,5 @@
     <string name="don_t_have_an_account">Don\'t have an account ?</string>
     <string name="student_name">Student Name</string>
     <string name="doubt">Doubt</string>
-    <string name="textview">TextView</string>
-    <string name="textview">TextView</string>
     <string name="textview">TextView</string>
 </resources>
