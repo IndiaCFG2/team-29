@@ -10,38 +10,50 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Doubts Fourm"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_gravity="center"
+        android:text="Doubts Fourm"
         android:textSize="20sp"
+        android:id="@+id/tag"
+        android:layout_gravity="center"
         android:layout_margin="20dp"/>
 
-    <EditText
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:id="@+id/doubt_content"
-        android:hint="Enter your doubt here"
-        android:maxLines="10"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_view"
+        android:layout_below="@id/tag"
+        android:layout_above="@id/bottom"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom"
+        android:padding="5dp">
 
-        <Button
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Doubts.."
+            android:id="@+id/doubt"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toLeftOf="@id/post_doubt"
+            android:background="@android:color/transparent"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
+            android:id="@+id/post_doubt"
             android:text="Post Doubt"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"
-            
-            android:id="@+id/post_Doubt"/>
-
-
-
-
-
-    </LinearLayout>
-
+            tools:ignore="RtlCompat"/>
+    </RelativeLayout>
 
 
 </LinearLayout>
