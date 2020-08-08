@@ -2,11 +2,25 @@
 <html>
   <head>
     <title>Teacher Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/litera/bootstrap.min.css"
+    />
   </head>
   <body>
-    Welcome {{teacher_name}} <br />
-    <button type="button" onclick="location.href = '{% url 'logout'%}'">
-      Logout
-    </button>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal">
+        Welcome {{teacher_name}}
+      </h5>
+      <button
+        type="button"
+        class="mt-2 btn btn-primary"
+        onclick="location.href = '{% url 'logout'%}'"
+      >
+        Logout
+      </button>
+    </div>
   </body>
 </html>
