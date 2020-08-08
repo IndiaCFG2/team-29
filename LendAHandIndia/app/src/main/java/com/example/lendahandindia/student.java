@@ -37,6 +37,7 @@ public class student extends AppCompatActivity {
     FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
     SearchView sv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +94,7 @@ public class student extends AppCompatActivity {
                 holder.setGrade(model.getGrade());
                 holder.setDescription(model.getDescription());
                 holder.setTeacher(model.getTeacher());
+
 
 
 
