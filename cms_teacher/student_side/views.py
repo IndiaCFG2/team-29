@@ -1,19 +1,53 @@
 from django.shortcuts import render, redirect, HttpResponse
-# from pyrebase import pyrebase
-
+import pyrebase
+from django.contrib import auth
 firebaseConfig = {
-    'apiKey': "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
-    'authDomain': "codeforgood-54cec.firebaseapp.com",
-    'databaseURL': "https://codeforgood-54cec.firebaseio.com",
-    'projectId': "codeforgood-54cec",
-    'storageBucket': "codeforgood-54cec.appspot.com",
-    'messagingSenderId': "953684615576",
-    'appId': "1:953684615576:web:cb0ae9bb9d1e4bebcfcbed",
-    'measurementId': "G-QEZS1EDTWK"
-}
+	  'apiKey': "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
+	  'authDomain': "codeforgood-54cec.firebaseapp.com",
+	  'databaseURL': "https://codeforgood-54cec.firebaseio.com",
+	  'projectId': "codeforgood-54cec",
+	  'storageBucket': "codeforgood-54cec.appspot.com",
+	  'messagingSenderId': "953684615576"
+	}
 
-# firebase = pyrebase.intialize_app(firebaseConfig)
+firebase = pyrebase.initialize_app(firebaseConfig)
+authe = firebase.auth()
+database = firebase.database()
+
+def student_login(request):
+	if request.method == 'POST':
+		email = request.POST.get('email')
+		passw = request.POST.get('passw')
+		try :
+			user = authe.sign_in_with_email_and_password(email, passw)
+		except :
+			message = "Invalid credentials"
+			return render(request, 'student_login.html', {'message' : message})
+		print(user['idToken'])
+		session_id = user['idToken']
+		request.session['uid'] = str(session_id)
+		return render(request, "student_dashboard.html", {"student_name" : email})
+	return render(request, "student_login.html")
 
 
-def setUpDatabase(request):
-    return render(request, 'student_side/student_sign_up.html')
+
+def student_signup(request):
+	if request.method == "POST":
+		name = request.POST.get('name')
+		email = request.POST.get('mail')
+		number = request.POST.get('number')
+		claSS = request.POST.get('class')
+		password = request.POST.get('password')
+		user = authe.create_user_with_email_and_password(email, password)
+		uid = user['localId']
+		data = {"classname" : claSS, "email" : email, "id" : uid, "password" :  password, "phonenumber" : number}
+		database.child("Students").child(uid).set(data)
+		message = "User created"
+		return render(request, "student_dashboard.html")
+	else:
+		return render(request, 'student_signup.html')
+
+
+def logout(request):
+	auth.logout(request)
+	return render(request, 'home.html')
