@@ -45,6 +45,7 @@ public class DoubtsFourmAdapter extends RecyclerView.Adapter<DoubtsFourmAdapter.
 
         final DoubtsFourmModal doubts=mDoubts.get(position);
 
+        holder.doubts.setText(doubts.getDoubts());
 
 
     }

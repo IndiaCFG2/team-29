@@ -19,8 +19,13 @@ import com.example.lendahandindia.Modal.DoubtsFourmModal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Comment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,6 +72,26 @@ public class DoubtsFourmActivity extends AppCompatActivity {
             }
         });
 
+        getdoubts();
+
+    }
+
+    private void getdoubts() {
+        FirebaseDatabase.getInstance().getReference().child("Comments").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                doubtslist.clear();
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    DoubtsFourmModal doubt=dataSnapshot.getValue(DoubtsFourmModal.class);
+                    doubtslist.add(doubt);
+                }
+                doubtsFourmAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void postDoubt(String studentDoubt) {
