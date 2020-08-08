@@ -24,9 +24,9 @@
     </div>
 
     <div>
-      <input class="ml-3" type="file" id="photo" />
-      <button class="btn btn-primary" onclick="uploadImage()">
-        Upload Image
+      <input class="ml-3" type="file" id="pdf" />
+      <button class="btn btn-primary" onclick="uploadPDF()">
+        Upload File
       </button>
     </div>
 
@@ -57,7 +57,7 @@
       const ref = firebase.storage().ref();
 
       function uploadImage() {
-        const file = document.querySelector("#photo").files[0];
+        const file = document.querySelector("#pdf").files[0];
 
         const name = new Date() + "-" + file.name;
 
@@ -71,7 +71,7 @@
           .then((snapshot) => snapshot.ref.getDownloadURL())
           .then((url) => {
             console.log(url);
-            alert("Image uploaded succesfully");
+            alert("Document uploaded succesfully");
           });
       }
 
