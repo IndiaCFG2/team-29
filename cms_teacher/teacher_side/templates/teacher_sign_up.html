@@ -11,6 +11,29 @@ body {
   background-color: #17a2b8;
   height: 100vh;
 }
+ .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #4caf50;
+        color: white;
+      }
 #login .container #login-row #login-column #login-box {
   margin-top: 20px;
   max-width: 600px;
@@ -26,6 +49,12 @@ body {
 }
 </style>
 <body>
+ <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
+      <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
+      <a href="https://www.lend-a-hand-india.org/about.php">About</a>
+    </div>
     <div id="login">
         <h3 class="text-center text-white pt-5">Sign Up as teacher</h3>
         <div class="container">
@@ -68,3 +97,4 @@ body {
         </div>
     </div>
 </body>
+
