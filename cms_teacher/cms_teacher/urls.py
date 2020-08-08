@@ -19,5 +19,5 @@ from teacher_side import views as teacher_side_views
 urlpatterns = [
 	path('', include('teacher_side.urls')),
     path('admin/', admin.site.urls),
-    path('teacher_sign_up/', teacher_side_views.teacher_sign_up_view, name = 'teacher_sign_up_view'),
+    path('teacher_login/', teacher_side_views.teacher_log_in_view, name = 'teacher_log_in_view'),
 ]
