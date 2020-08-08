@@ -17,9 +17,12 @@
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".student"/>
         <activity android:name=".student" />
-        <activity android:name=".DoubtsFourmActivity" />
-        <activity android:name=".signin" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".DoubtsFourmActivity"
+            android:parentActivityName=".student"/>
+        <activity android:name=".signin"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".RegisterActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -41,6 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         register=findViewById(R.id.register);
         email=findViewById(R.id.email);
         phoneNumber=findViewById(R.id.phone_number);

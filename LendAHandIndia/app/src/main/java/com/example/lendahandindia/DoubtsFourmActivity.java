@@ -48,6 +48,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doubts_fourm);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         doubts=findViewById(R.id.doubt);
         post=findViewById(R.id.post_doubt);
