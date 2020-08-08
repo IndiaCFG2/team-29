@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         registerbtn =(Button) findViewById(R.id.registerbtn);
     }
 
-    public void register()
+    public void register(View view)
     {
         Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
         startActivity(intent);
