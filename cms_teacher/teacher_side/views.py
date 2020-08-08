@@ -14,13 +14,16 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 
 def setUpDatabase(request):
-	return render(request, 'teacher_side/teacher_sign_up.html')
+	return render(request, 'teacher_side/teacher_login.html')
 
-def teacher_sign_up_view(request):
+def teacher_log_in_view(request):
 	if request.method == 'POST':
 		email = request.POST.get('email')
 		passw = request.POST.get('passw')
-
-		user = auth.sign_in_with_email_and_password(email, passw)
+		try :
+			user = auth.sign_in_with_email_and_password(email, passw)
+		except :
+			message = "Invalid credentials"
+			return render(request, 'teacher_side/teacher_login.html', {'message' : message})
 		return render(request, "teacher_side/teacher_dashboard.html", {"teacher_name" : email})
-	return render(request, "teacher_sign_up.html")
+	return render(request, "teacher_login.html")
