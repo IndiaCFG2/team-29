@@ -14,8 +14,10 @@ class Subject (models.Model):
 
 
 class Course (models.Model):
-    owner = models.ForeignKey(User, related_name='courses_created')
-    Subject = models.ForeignKey(Subject, related_name="courses")
+    owner = models.ForeignKey(
+        User, related_name='courses_created', on_delete=models.CASCADE)
+    Subject = models.ForeignKey(
+        Subject, related_name="courses", on_delete=models.CASCADE)
     title = models.CharField(max_length=200, unique=True)
     overview = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
@@ -28,9 +30,10 @@ class Course (models.Model):
 
 
 class Module(models.Model):
-    course = models.ForeignKey(Course, related_name='modules')
+    course = models.ForeignKey(
+        Course, related_name='modules', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
 
-    def _-str__(self):
+    def __str__(self):
         return self.title
