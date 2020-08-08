@@ -2,68 +2,92 @@
 <html>
 <head>
 	<title>Discussion Tab</title>
-	<style type="text/css">
-		.tabco2 {
-  font-family: 'Josefin Sans', sans-serif;
-  background: #C0C0C0;
-  text-align: center;
-  color: black;
-}
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-th.tabco2 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
-}
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
 
-.tabco3 {
-    font-family: 'Josefin Sans', sans-serif;
-  background: #C0C0C0;
-  text-align: center;
-  color: black;
-}
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
 
-th.tabco3 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
-}
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
 
-.tabco4 {
-  background: #C0C0C0;
-  text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
-  color: black;
-}
+      .topnav a.active {
+        background-color: #4caf50;
+        color: white;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        text-align: center;
+        background-color: #17a2b8;
+      }
+      .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
 
-th.tabco4 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
-}
+      .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4caf50;
+      }
 
-.tabco5 {
-    font-family: 'Josefin Sans', sans-serif;
-  background: #C0C0C0;
-  text-align: center;
-  color: black;
-}
+      .button1:hover {
+        background-color: #4caf50;
+        color: white;
+      }
 
-th.tabco5 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
-}
+      .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008cba;
+      }
 
-	</style>
+      .button2:hover {
+        background-color: #008cba;
+        color: white;
+      }
+      .button3 {
+        background-color: white;
+        color: black;
+        border: 2px solid #ff0000;
+      }
+
+      .button3:hover {
+        background-color: #ff0000;
+        color: white;
+      }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -75,22 +99,23 @@ th.tabco5 {
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
     </div>
-	<h2>Questions and Answers</h2>
+	<h1 align="center">Questions and Answers</h1>
 	{% for i in questions %}
-	        <p>{{ i.doubt_id }}</p>
-			<p>{{ i.doubt_desc }}</p>
-			{% if i.doubt_ans %}
-				<p>{{ i.doubt_ans }}</p>
-			{% else %}
-				<form action = "/submit_answer/" method = "POST">
-					{% csrf_token %}
-					<input type="text" name="uid" placeholder="Copy the above Doubt ID :">
-					<input type="text" name="answer" placeholder="Answer to the question">
-					<button type="submit">Submit</button>
-				</form>
-			{% endif %}
+	<div class="jumbotron">
+	  <h1 class="display-8">Question ID : {{ i.doubt_id }}</h1>
+	  <p class="lead">{{ i.doubt_desc }}</p>
+	  <hr class="my-4">
+	    {% if i.doubt_ans %}
+			<p>{{ i.doubt_ans }}</p>
+		{% else %}
+			<form action = "/submit_answer/" method = "POST">
+				{% csrf_token %}
+				<input type="text" name="uid" placeholder="Copy the above Doubt ID :">
+				<input type="text" name="answer" placeholder="Answer to the question">
+				<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+			</form>
+		{% endif %}
+	</div>
 	{% endfor %}
-</table>
-
 </body>
 </html>

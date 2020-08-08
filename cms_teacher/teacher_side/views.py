@@ -30,8 +30,7 @@ def teacher_signup_view(request):
 		uid = user['localId']
 		data = {"teacher_name" : name, "teacher_email" : email, "teacher_subject" : subject, "phone_number" : number, "password" :  password}
 		database.child("Teacher").child(uid).set(data)
-		message = "User created"
-		return render(request, "teacher_dashboard.html", {'message' : message})
+		return render(request, "teacher_dashboard.html", {'message' : str(name)})
 	else:
 		return render(request, "teacher_sign_up.html")
 

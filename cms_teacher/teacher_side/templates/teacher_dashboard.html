@@ -55,13 +55,9 @@
       <h5 class="my-0 mr-md-auto font-weight-normal">
         Welcome {{teacher_name}}
       </h5>
-      <button
-        type="button"
-        class="mt-2 btn btn-primary"
-        onclick="location.href = '{% url 'logout'%}'"
-      >
-        Logout
-      </button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'logout'%}'">Logout</button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'view_schedules'%}'">Logout</button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'discussion_tab'%}'">Logout</button>
     </div>
 <p>Click on the "Choose File" button to upload a pdf file:</p>
 <div style="width:1040px;height:240px;display: inline-block;">
