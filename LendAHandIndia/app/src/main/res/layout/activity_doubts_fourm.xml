@@ -27,7 +27,7 @@
         android:layout_below="@id/tag"
         android:layout_above="@id/bottom"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
@@ -55,7 +55,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"
             tools:ignore="RtlCompat"/>
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
