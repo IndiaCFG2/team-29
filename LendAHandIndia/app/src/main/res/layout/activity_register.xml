@@ -49,13 +49,14 @@
 
 
     <Button
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/register"
-        android:text="Register"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:background="@drawable/button_background"/>
+        android:background="@drawable/roundshapebtn"
+        android:text="Register"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
