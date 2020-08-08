@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Email Address"
+            android:hint="@string/email_address"
             android:inputType="textEmailAddress" />
     </LinearLayout>
 
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
     </LinearLayout>
 
@@ -83,7 +83,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/roundshapebtn"
         android:onClick="login"
-        android:text="SignIn"
+        android:text="@string/signin"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -97,7 +97,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center_horizontal"
         android:onClick="signup"
-        android:text="Don't have an account ?" />
+        android:text="@string/don_t_have_an_account" />
 
 
 </LinearLayout>
