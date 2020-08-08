@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('teacher_login/', teacher_side_views.teacher_log_in_view, name = 'teacher_login'),
     path('teacher_signup/', teacher_side_views.teacher_signup_view, name = 'teacher_signup'),
+    path('logout/', teacher_side_views.logout, name = "logout")
 ]
