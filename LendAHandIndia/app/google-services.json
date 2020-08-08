@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "953684615576",
+    "firebase_url": "https://codeforgood-54cec.firebaseio.com",
+    "project_id": "codeforgood-54cec",
+    "storage_bucket": "codeforgood-54cec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953684615576:android:df058003435b7c68cfcbed",
+        "android_client_info": {
+          "package_name": "Code.For.Good_2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953684615576-5trn23heavfo53iqd6c819qunp0lra7r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "Code.For.Good_2020",
+            "certificate_hash": "de5d00be53fcd0014d7a23de75fe88ed93c38a75"
+          }
+        },
+        {
+          "client_id": "953684615576-rhspe1timuc5051m46m4h6qjhm2tno5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbp0OcJCqXTcsWKO78pbtzvUSCglDUWic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953684615576-rhspe1timuc5051m46m4h6qjhm2tno5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
