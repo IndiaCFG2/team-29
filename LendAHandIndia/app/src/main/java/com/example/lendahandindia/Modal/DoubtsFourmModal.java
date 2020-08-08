@@ -5,14 +5,24 @@ public class DoubtsFourmModal {
     private String id;
     private String doubts;
     private String answer;
+    private String name;
 
     public DoubtsFourmModal() {
     }
 
-    public DoubtsFourmModal(String id, String doubts, String answer) {
+    public DoubtsFourmModal(String id, String doubts, String answer, String name) {
         this.id = id;
         this.doubts = doubts;
         this.answer = answer;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAnswer() {
