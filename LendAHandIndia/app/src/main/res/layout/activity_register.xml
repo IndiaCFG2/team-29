@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20sp"
-        android:hint="Class Name"
+        android:hint="@string/class_name"
         android:id="@+id/class_name"/>
 
 
@@ -55,13 +55,13 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:background="@drawable/roundshapebtn"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an Account?"
+        android:text="@string/already_have_an_account"
         android:id="@+id/hava_acc"
         android:textColor="@color/colorPrimaryDark"
         android:layout_gravity="center"/>
