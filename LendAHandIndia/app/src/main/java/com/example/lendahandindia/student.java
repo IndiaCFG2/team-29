@@ -18,7 +18,7 @@ public class student extends AppCompatActivity {
 
     public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
-    TextView doubt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +26,7 @@ public class student extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         setContentView(R.layout.activity_student);
-        doubt=findViewById(R.id.doubt);
-        doubt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(student.this,DoubtsFourmActivity.class));
-            }
-        });
+
     }
 
     @Override

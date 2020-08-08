@@ -72,7 +72,6 @@ public class DoubtsFourmActivity extends AppCompatActivity {
                 }
             }
         });
-
         getdoubts();
     }
 
