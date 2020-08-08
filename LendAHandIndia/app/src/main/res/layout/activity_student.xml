@@ -8,4 +8,12 @@
     android:orientation="vertical"
     tools:ignore="MissingClass">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="doubt"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_gravity="center"
+        android:id="@+id/doubt"
+        android:layout_marginTop="400dp"/>
 </LinearLayout>
