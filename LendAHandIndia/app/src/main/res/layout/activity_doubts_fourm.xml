@@ -31,18 +31,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:id="@+id/bottom"
         android:padding="5dp">
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:hint="Doubts.."
             android:id="@+id/doubt"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_toLeftOf="@id/post_doubt"
             android:background="@android:color/transparent"/>
         <TextView
@@ -50,7 +50,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/post_doubt"
             android:text="Post Doubt"
-            android:layout_marginEnd="5dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"
