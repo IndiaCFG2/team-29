@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calendar</title>
+	<title>Discussion Tab</title>
 	<style type="text/css">
 		.tabco2 {
   font-family: 'Josefin Sans', sans-serif;
@@ -75,22 +75,22 @@ th.tabco5 {
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
     </div>
-	<h2>Schedule your tasks here!</h2>
-	<form action="/schedule/" method="post">
-	  {% csrf_token %}
-	  <h2>Select the date : </h2>
-	  <input type="date" name = "date">
-	  <br>
-	  <h2>Time : </h2>
-	  <input type="time" name="time">
-	  <br>
-	  <h2>Description : </h2>
-	  <input type="text" name="description">
-	  <br>
-	  <h2>Class : </h2>
-	  <input type = "text" name = "classroom">
-	  <br>
-	  <input type="submit">
-	</form>
+	<h2>Questions and Answers</h2>
+	{% for i in questions %}
+	        <p>{{ i.doubt_id }}</p>
+			<p>{{ i.doubt_desc }}</p>
+			{% if i.doubt_ans %}
+				<p>{{ i.doubt_ans }}</p>
+			{% else %}
+				<form action = "/submit_answer/" method = "POST">
+					{% csrf_token %}
+					<input type="text" name="uid" placeholder="Copy the above Doubt ID :">
+					<input type="text" name="answer" placeholder="Answer to the question">
+					<button type="submit">Submit</button>
+				</form>
+			{% endif %}
+	{% endfor %}
+</table>
+
 </body>
 </html>

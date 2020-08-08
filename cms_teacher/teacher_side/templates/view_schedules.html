@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calendar</title>
+	<title>View Schedules</title>
 	<style type="text/css">
 		.tabco2 {
   font-family: 'Josefin Sans', sans-serif;
@@ -69,28 +69,32 @@ th.tabco5 {
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-	<div class="topnav">
+  <div class="topnav">
       <a class="active" href="#home">Home</a>
       <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
     </div>
-	<h2>Schedule your tasks here!</h2>
-	<form action="/schedule/" method="post">
-	  {% csrf_token %}
-	  <h2>Select the date : </h2>
-	  <input type="date" name = "date">
-	  <br>
-	  <h2>Time : </h2>
-	  <input type="time" name="time">
-	  <br>
-	  <h2>Description : </h2>
-	  <input type="text" name="description">
-	  <br>
-	  <h2>Class : </h2>
-	  <input type = "text" name = "classroom">
-	  <br>
-	  <input type="submit">
-	</form>
+	<table class="table table-condensed table-hover">
+	<thead>
+		<tr>
+			<th class="tabco2" >Date</th>
+			<th class="tabco3">Time</th>
+			<th class="tabco4" > Description </th>
+			<th class="tabco5" > Classroom </th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in schedule %}
+			<tr class = "row_format">
+				<td class = "tabco2">{{ i.date }}</td>
+				<td class = "tabco3">{{ i.time }}</td>
+		        <td class = "tabco4">{{ i.desc }}</td>
+		        <td class = "tabco5">{{ i.classroom }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
 </body>
 </html>
