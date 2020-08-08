@@ -61,7 +61,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:id="@+id/class_name"
-            android:hint="Class Name"
+            android:hint="@string/class_name"
             android:layout_marginTop="20dp"
             app:met_floatingLabel="normal"/>
 
@@ -74,7 +74,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:background="@drawable/roundshapebtn"
-            android:text="Save"
+            android:text="@string/save"
             android:textColor="@color/blue"
             android:textSize="18sp"
             tools:ignore="RtlCompat" />
