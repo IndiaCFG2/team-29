@@ -110,20 +110,20 @@ public class student extends AppCompatActivity {
             TextView reschapter =(TextView) mView.findViewById(R.id.res_chapter);
             reschapter.setText(chapter);
         }
-        public void setGrade(String chapter)
+        public void setGrade(String grade)
         {
             TextView resgrade =(TextView) mView.findViewById(R.id.res_class);
-            resgrade.setText(chapter);
+            resgrade.setText("Grade :"+ grade);
         }
-        public void setDescription(String chapter)
+        public void setDescription(String descripton)
         {
             TextView resdesc =(TextView) mView.findViewById(R.id.res_description);
-            resdesc.setText(chapter);
+            resdesc.setText(descripton);
         }
-        public void setTeacher(String chapter)
+        public void setTeacher(String teacher)
         {
             TextView resteacher=(TextView) mView.findViewById(R.id.res_teacher);
-            resteacher.setText(chapter);
+            resteacher.setText("Teacher :"+teacher);
         }
 
 
