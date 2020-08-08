@@ -31,6 +31,7 @@ public class filter extends AppCompatActivity {
         setContentView(R.layout.activity_filter);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        cls=getIntent().getStringExtra("cls");
         mAuth=FirebaseAuth.getInstance();
         LoadData();
     }
@@ -41,10 +42,12 @@ public class filter extends AppCompatActivity {
 
         Query query=db.collection("lesson"). whereEqualTo("grade",cls);
 
-        Log.i("result", String.valueOf(query));
+
         FirestoreRecyclerOptions<lesson> options=new FirestoreRecyclerOptions.Builder<lesson>()
                 .setQuery(query,lesson.class)
                 .build();
+
+
 
         adapter=new FirestoreRecyclerAdapter<lesson, student.LessonViewHolder>(options) {
 
