@@ -39,6 +39,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
     private EditText doubts;
     private TextView post;
 
+
     private RecyclerView recyclerView;
     List<DoubtsFourmModal> doubtslist;
     DoubtsFourmAdapter doubtsFourmAdapter;
@@ -50,6 +51,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doubts_fourm);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         doubts=findViewById(R.id.doubt);
         post=findViewById(R.id.post_doubt);
         recyclerView=findViewById(R.id.recycler_view);
@@ -59,6 +61,10 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         doubtslist=new ArrayList<>();
         doubtsFourmAdapter=new DoubtsFourmAdapter(this,doubtslist);
         recyclerView.setAdapter(doubtsFourmAdapter);
+
+        DoubtsFourmModal doubt=new DoubtsFourmModal();
+        final String doubtId=doubt.getId();
+
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,9 +111,11 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Doubts").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
 
+
         String id=ref.push().getKey();
         map.put("id",id);
         map.put("doubts",studentDoubt);
+        map.put("answer","");
 
         doubts.setText("");
 
