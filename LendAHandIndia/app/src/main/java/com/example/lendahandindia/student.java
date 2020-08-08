@@ -14,9 +14,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+<<<<<<< HEAD
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+=======
+import android.widget.Button;
+>>>>>>> 43df8545a42ba8ed3d541149d929ee9951082b56
 import android.widget.TextView;
 
 import com.example.lendahandindia.Modal.lesson;
@@ -32,9 +36,14 @@ public class student extends AppCompatActivity {
 
     public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
+<<<<<<< HEAD
     RecyclerView mLessonlist;
     FirebaseFirestore db;
     FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
+=======
+
+    private Button profile;
+>>>>>>> 43df8545a42ba8ed3d541149d929ee9951082b56
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,7 @@ public class student extends AppCompatActivity {
 
         setContentView(R.layout.activity_student);
 
+<<<<<<< HEAD
         mLessonlist=findViewById(R.id.lesson_list);
         FirebaseApp.initializeApp(getApplicationContext());
         LoadData();
@@ -125,6 +135,15 @@ public class student extends AppCompatActivity {
             resteacher.setText(chapter);
         }
 
+=======
+        profile=findViewById(R.id.profile);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(student.this,ProfileActivity.class));
+            }
+        });
+>>>>>>> 43df8545a42ba8ed3d541149d929ee9951082b56
 
     }
 

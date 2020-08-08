@@ -12,6 +12,7 @@ firebaseConfig = {
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 authe = firebase.auth()
+database = firebase.database()
 
 def setUpDatabase(request):
 	return render(request, 'home.html')
@@ -24,6 +25,9 @@ def teacher_signup_view(request):
 		number = request.POST.get('number')
 		password = request.POST.get('password')
 		user = authe.create_user_with_email_and_password(email, password)
+		uid = user['localId']
+		data = {"teacher_name" : name, "teacher_email" : email, "teacher_subject" : subject, "phone_number" : number, "password" :  password}
+		database.child("Teacher").child(uid).set(data)
 		message = "User created"
 		return render(request, "teacher_dashboard.html", {'message' : message})
 	else:
@@ -47,3 +51,7 @@ def teacher_log_in_view(request):
 def logout(request):
 	auth.logout(request)
 	return render(request, 'home.html')
+
+def student_redirect(request):
+	return redirect('/student_signup/')
+
