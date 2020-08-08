@@ -2,40 +2,131 @@ package com.example.lendahandindia;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.lendahandindia.Modal.lesson;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class student extends AppCompatActivity {
 
     public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
 
-    private Button profile;
+    RecyclerView mLessonlist;
+    FirebaseFirestore db;
+    FirestoreRecyclerAdapter<lesson,LessonViewHolder> adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mAuth=FirebaseAuth.getInstance();
+
         setContentView(R.layout.activity_student);
 
-        profile=findViewById(R.id.profile);
-        profile.setOnClickListener(new View.OnClickListener() {
+
+        mLessonlist=findViewById(R.id.lesson_list);
+        FirebaseApp.initializeApp(getApplicationContext());
+        LoadData();
+
+    }
+    private void LoadData() {
+        db= FirebaseFirestore.getInstance();
+
+        Query query=db.collection("lesson");
+
+        Log.i("result", String.valueOf(query));
+        FirestoreRecyclerOptions<lesson> options=new FirestoreRecyclerOptions.Builder<lesson>()
+                .setQuery(query,lesson.class)
+                .build();
+
+        adapter=new FirestoreRecyclerAdapter<lesson,LessonViewHolder>(options) {
+
+
+            @NonNull
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(student.this,ProfileActivity.class));
+            public LessonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.les_row,parent,false);
+                return new LessonViewHolder(view);
             }
-        });
+
+            @Override
+            protected void onBindViewHolder(@NonNull final LessonViewHolder holder, final int position, @NonNull lesson model) {
+
+
+                holder.setChapter(model.getChapter());
+                holder.setGrade(model.getGrade());
+                holder.setDescription(model.getDescription());
+                holder.setTeacher(model.getTeacher());
+
+
+
+            }
+
+
+        };
+
+        final RecyclerView mHouseList = (RecyclerView) findViewById(R.id.lesson_list);
+
+        mHouseList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        mHouseList.setAdapter(adapter);
+
+
+    }
+
+    public static class LessonViewHolder extends RecyclerView.ViewHolder
+    {
+        View mView;
+
+
+        public LessonViewHolder(@NonNull View itemView) {
+            super(itemView);
+            mView=itemView;
+        }
+
+        public void setChapter(String chapter)
+        {
+            TextView reschapter =(TextView) mView.findViewById(R.id.res_chapter);
+            reschapter.setText(chapter);
+        }
+        public void setGrade(String grade)
+        {
+            TextView resgrade =(TextView) mView.findViewById(R.id.res_class);
+            resgrade.setText("Grade :"+ grade);
+        }
+        public void setDescription(String descripton)
+        {
+            TextView resdesc =(TextView) mView.findViewById(R.id.res_description);
+            resdesc.setText(descripton);
+        }
+        public void setTeacher(String teacher)
+        {
+            TextView resteacher=(TextView) mView.findViewById(R.id.res_teacher);
+            resteacher.setText("Teacher :"+teacher);
+        }
+
+
 
     }
 
@@ -55,6 +146,10 @@ public class student extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), DoubtsFourmActivity.class);
                 startActivity(intent);
                 return  true;
+            case R.id.pro:
+                Intent intent9 = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent9);
+                return  true;
             case R.id.logout:
                 mAuth.signOut();
                 SharedPreferences.Editor editor=getSharedPreferences(MY_PREFERENCE,MODE_PRIVATE).edit();
@@ -70,5 +165,16 @@ public class student extends AppCompatActivity {
 
         }
 
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
 }

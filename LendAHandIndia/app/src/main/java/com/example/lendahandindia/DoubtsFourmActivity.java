@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.lendahandindia.Adapter.DoubtsFourmAdapter;
 import com.example.lendahandindia.Modal.DoubtsFourmModal;
+import com.example.lendahandindia.Modal.StudentModal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,8 +73,10 @@ public class DoubtsFourmActivity extends AppCompatActivity {
                 }
             }
         });
+
         getdoubts();
     }
+
 
     private void getdoubts() {
         FirebaseDatabase.getInstance().getReference().child("Doubts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
@@ -83,6 +86,7 @@ public class DoubtsFourmActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     DoubtsFourmModal doubt=dataSnapshot.getValue(DoubtsFourmModal.class);
                     doubtslist.add(doubt);
+
                 }
                 doubtsFourmAdapter.notifyDataSetChanged();
             }
