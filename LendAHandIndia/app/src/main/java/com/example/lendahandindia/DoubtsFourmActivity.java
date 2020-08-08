@@ -106,13 +106,13 @@ public class DoubtsFourmActivity extends AppCompatActivity {
         map.put("id",id);
         map.put("doubts",studentDoubt);
 
+        doubts.setText(" ");
 
         ref.child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(DoubtsFourmActivity.this,"Doubts Added",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(DoubtsFourmActivity.this,student.class));
                 }
                 else{
                     Toast.makeText(DoubtsFourmActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
