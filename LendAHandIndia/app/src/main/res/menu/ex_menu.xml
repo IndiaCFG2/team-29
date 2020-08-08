@@ -5,6 +5,10 @@
     <item android:id="@+id/queries"
         android:icon="@drawable/qanda"
         android:title="Post your queries"
+        app:showAsAction="always"/>
+    <item android:id="@+id/pro"
+        android:icon="@drawable/account"
+        android:title="Profile"
         app:showAsAction="ifRoom"/>
     <item android:id="@+id/logout"
         android:title="Log Out"
