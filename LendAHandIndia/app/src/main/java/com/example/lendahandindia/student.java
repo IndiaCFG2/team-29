@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class student extends AppCompatActivity {
 
-    public static final String MY_PREFERENCE="com.example.restaurant.user";
+    public static final String MY_PREFERENCE="com.example.lahi.user";
     FirebaseAuth mAuth;
     TextView doubt;
 
@@ -50,11 +50,17 @@ public class student extends AppCompatActivity {
             case R.id.queries:
                 Intent intent = new Intent(getApplicationContext(), DoubtsFourmActivity.class);
                 startActivity(intent);
+                return  true;
             case R.id.logout:
                 mAuth.signOut();
                 SharedPreferences.Editor editor=getSharedPreferences(MY_PREFERENCE,MODE_PRIVATE).edit();
                 editor.putBoolean("user", false);
                 editor.commit();
+                Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent2);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 
