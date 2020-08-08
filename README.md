@@ -4,7 +4,7 @@
 
 1. Anshika Gupta
 2. Divya Simhadri
-3. Likhita
+3. Likhita Ramini
 4. Rahul Gupta
 5. Rishabh Priyadarshi
 6. Teekshan Mahajan
