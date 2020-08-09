@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/shade"
     tools:context=".ProfileActivity">
 
     <RelativeLayout
@@ -27,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="44dp"
-            android:src="@drawable/ic_action_name"
+            app:srcCompat="@drawable/ic_action_name"
             tools:ignore="RtlCompat" />
 
     </RelativeLayout>
@@ -65,17 +66,17 @@
             app:met_floatingLabel="normal"/>
 
         <Button
+            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
-            android:layout_gravity="center"
-            android:text="Save"
-            android:layout_margin="20dp"
-            android:textSize="18sp"
-            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/save"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/roundshapebtn"
+            android:text="Save"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
             tools:ignore="RtlCompat" />
 
     </LinearLayout>

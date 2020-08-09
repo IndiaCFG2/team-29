@@ -44,7 +44,7 @@
   </head>
   <body style="background-color:#17a2b8;">
   <div class="topnav">
-      <a class="active" href="#home">Home</a>
+      <a class="active" href="/">Home</a>
       <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
@@ -52,14 +52,16 @@
     <div
       class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
     >
-      <h5 class="my-0 mr-md-auto font-weight-normal">
-        Welcome {{teacher_name}}
+      <h5 class="my-0 mr-md-auto font-weight-normal" align="center">
+        Welcome {{teacher_name}}!
       </h5>
-      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'logout'%}'">Logout</button>
-      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'view_schedules'%}'">Logout</button>
-      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'discussion_tab'%}'">Logout</button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'logout'%}'" style="margin-right: 20px">Logout</button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'view_schedules'%}'" style="margin-right: 20px">Schedules</button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'discussion_tab'%}'" style="margin-right: 20px">Discussion Tab</button>
+      <button type="button" class="mt-2 btn btn-primary" onclick="location.href = '{% url 'schedule'%}'" style="margin-right: 20px">Add Schedule</button>
     </div>
-<p>Click on the "Choose File" button to upload a pdf file:</p>
+ <div align="center">
+<h3>Click on the "Choose File" button to upload a pdf file:</h3>
 <div style="width:1040px;height:240px;display: inline-block;">
 
 
@@ -74,6 +76,7 @@
         Upload PDF File
       </button>
 
+</div>
 </div>
 </body>
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>

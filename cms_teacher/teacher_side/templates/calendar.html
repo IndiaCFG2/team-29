@@ -1,96 +1,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calendar</title>
-	<style type="text/css">
-		.tabco2 {
-  font-family: 'Josefin Sans', sans-serif;
-  background: #C0C0C0;
+ <meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+.carousel{
+    background: #2f4357;
+    margin-top: 0px;
+}
+.carousel-item{
+    text-align: center;
+    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+.bs-example{
+  margin: 20px;
+}
+.button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
   color: black;
 }
 
-th.tabco2 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
 }
 
-.tabco3 {
-    font-family: 'Josefin Sans', sans-serif;
-  background: #C0C0C0;
-  text-align: center;
-  color: black;
+.header-right {
+  float: right;
 }
 
-th.tabco3 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
 }
 
-.tabco4 {
-  background: #C0C0C0;
-  text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
-  color: black;
+.abc{
+  font-weight: bolder;
 }
+.Right { 
+            left: 66.1%;
+            margin-top: -115px; 
+            margin-left: 720px; 
+        }
+.Left { 
+            left: 50%;  
+            margin-left: 230px; 
+        }
+.Center {  
+            left: 46%; 
+            margin-left: 420px;
+            margin-top: -139px; 
+        }
 
-th.tabco4 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
-}
+</style>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-.tabco5 {
-    font-family: 'Josefin Sans', sans-serif;
-  background: #C0C0C0;
-  text-align: center;
-  color: black;
-}
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
 
-th.tabco5 {
-    color: #fff;
-    background: #03A9F4;
-    padding: 20px 5px !important;
-    font-size: 18px;
-    text-transform: uppercase;
-}
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
 
-	</style>
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #4caf50;
+        color: white;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        text-align: center;
+        background-color: #17a2b8;
+      }
+      .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+
+      .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4caf50;
+      }
+
+      .button1:hover {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008cba;
+      }
+
+      .button2:hover {
+        background-color: #008cba;
+        color: white;
+      }
+      .button3 {
+        background-color: white;
+        color: black;
+        border: 2px solid #ff0000;
+      }
+
+      .button3:hover {
+        background-color: #ff0000;
+        color: white;
+      }
+    </style>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="topnav">
-      <a class="active" href="#home">Home</a>
+      <a class="active" href="//">Home</a>
       <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
     </div>
-	<h2>Schedule your tasks here!</h2>
-	<form action="/schedule/" method="post">
+
+
+<div class="jumbotron" align="center">
+  <h1 class="display-5">Add Schedule Here</h1>
+  <p class="lead">Add schedule to publish to all the students on the notification board</p>
+  <hr class="my-4">
+  <form action="/schedule/" method="post">
 	  {% csrf_token %}
 	  <h2>Select the date : </h2>
-	  <input type="date" name = "date">
+	  <input type="date" name = "date" style="width: 300px">
+	  <br>
 	  <br>
 	  <h2>Time : </h2>
-	  <input type="time" name="time">
+	  <input type="time" name="time" style="width: 300px">
+	  <br>
 	  <br>
 	  <h2>Description : </h2>
-	  <input type="text" name="description">
+	  <input type="text" name="description" style="width: 300px" placeholder="Describe event here">
+	  <br>
 	  <br>
 	  <h2>Class : </h2>
-	  <input type = "text" name = "classroom">
+	  <input type = "text" name = "classroom" style="width: 300px">
 	  <br>
-	  <input type="submit">
+	  <br>
+	  <input type="submit" class="btn btn-primary btn-lg">
 	</form>
+</div>
+
 </body>
 </html>

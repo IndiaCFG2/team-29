@@ -94,7 +94,7 @@
 </head>
 <body>
 	<div class="topnav">
-      <a class="active" href="#home">Home</a>
+      <a class="active" href="/teacher_dashboard/">Home</a>
       <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
@@ -110,9 +110,9 @@
 		{% else %}
 			<form action = "/submit_answer/" method = "POST">
 				{% csrf_token %}
-				<input type="text" name="uid" placeholder="Copy the above Doubt ID :">
+				<input type="text" name="uid" placeholder="Paste the Doubt ID">
 				<input type="text" name="answer" placeholder="Answer to the question">
-				<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		{% endif %}
 	</div>

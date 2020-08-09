@@ -28,5 +28,6 @@ urlpatterns = [
     path('schedule/', teacher_side_views.schedule, name = 'schedule'),
     path('view_schedules/', teacher_side_views.view_schedules, name = "view_schedules"),
     path('discussion_tab/', teacher_side_views.discussion_tab, name = "discussion_tab"),
-    path('submit_answer/', teacher_side_views.submit_answer, name = "submit_answer")
+    path('submit_answer/', teacher_side_views.submit_answer, name = "submit_answer"),
+    path('teacher_dashboard/', teacher_side_views.teacher_dashboard, name = "teacher_dashboard")
 ]
