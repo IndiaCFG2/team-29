@@ -93,12 +93,8 @@
 <h1>Student dashboard</h1>
 </div>
 
-   <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-storage.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
- https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
 
 <script>
@@ -116,6 +112,9 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+
+  var storage = firebase.storage();
+  var pathReference = storage.ref("")
 
 </script>
   </body>
