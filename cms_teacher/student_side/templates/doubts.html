@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-#respond {
-  margin-top: 40px;
-}
+  <head>
+    <style>
+      #respond {
+        margin-top: 40px;
+      }
 
-#respond input[type='text'],
-#respond input[type='email'], 
-#respond textarea {
-  margin-bottom: 10px;
-  display: block;
-  width: 100%;
+      #respond input[type="text"],
+      #respond input[type="email"],
+      #respond textarea {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
 
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        border-radius: 5px;
 
-  line-height: 1.4em;
-}
-.form-control-borderless {
-    border: none;
-}
+        line-height: 1.4em;
+      }
+      .form-control-borderless {
+        border: none;
+      }
 
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-}
-</style>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      .form-control-borderless:hover,
+      .form-control-borderless:active,
+      .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+    </style>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <div id="respond">
+      <h3>Enter Your Doubt</h3>
 
-<div id="respond">
+      <label for="comment_author" class="required">Your name</label>
+      <input
+        type="text"
+        name="comment_author"
+        id="comment_author"
+        value=""
+        tabindex="1"
+        required="required"
+      />
 
-  <h3>Enter Your Doubt</h3>
+      <label for="comment" class="required">Your message</label>
+      <textarea
+        name="comment"
+        id="comment"
+        rows="10"
+        tabindex="4"
+        required="required"
+      ></textarea>
 
-
-
-    <label for="comment_author" class="required">Your name</label>
-    <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
-
-   
-
-    <label for="comment" class="required">Your message</label>
-    <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
-
- 
-    <input type="hidden" name="comment_post_ID"  id="comment_post_ID" />
-    <input name="submit" type="submit" class="btn btn-info btn-md" value="Submit comment" />
-
-
-
-</div>
+      <input type="hidden" name="comment_post_ID" id="comment_post_ID" />
+      <input
+        name="submit"
+        type="submit"
+        class="btn btn-info btn-md"
+        value="Submit comment"
+      />
+    </div>
+  </head>
+</html>
