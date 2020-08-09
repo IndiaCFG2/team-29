@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+   body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+   }
+  .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #4caf50;
+        color: white;
+      }
+  .form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+  </style>
+    <title>Student Dashboard</title>
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 #respond {
   margin-top: 40px;
@@ -37,25 +81,22 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<div class="topnav">
+      <a class="active" href="/student_dashboard/">Home</a>
+      <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
+      <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
+      <a href="https://www.lend-a-hand-india.org/about.php">About</a>
+</div>
 
-<div id="respond">
-
-  <h3>Enter Your Doubt</h3>
-
-
-
-    <label for="comment_author" class="required">Your name</label>
-    <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
-
-   
-
-    <label for="comment" class="required">Your message</label>
-    <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
-
- 
-    <input type="hidden" name="comment_post_ID"  id="comment_post_ID" />
-    <input name="submit" type="submit" class="btn btn-info btn-md" value="Submit comment" />
-
-
+<div id="respond" style="padding: 10% 40% 20% 40%">
+    <h3>Enter Your Doubt</h3>
+    <form action = '/doubts_submission/' method="POST">
+      {% csrf_token %}
+      <label for="comment_author" class="required">Your name</label>
+      <input type="text" name="name" required="required" style="height: 40px">
+      <label for="comment_author" class="required">Your doubt</label>
+      <input type="text" name="doubt" required="required" style="height: 90px">
+      <input name="submit" type="submit" class="btn btn-info btn-md" value="Submit Doubt"/>
+    </form>
 
 </div>

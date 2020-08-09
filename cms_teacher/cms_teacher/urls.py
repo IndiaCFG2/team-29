@@ -29,5 +29,7 @@ urlpatterns = [
     path('view_schedules/', teacher_side_views.view_schedules, name = "view_schedules"),
     path('discussion_tab/', teacher_side_views.discussion_tab, name = "discussion_tab"),
     path('submit_answer/', teacher_side_views.submit_answer, name = "submit_answer"),
-    path('teacher_dashboard/', teacher_side_views.teacher_dashboard, name = "teacher_dashboard")
+    path('teacher_dashboard/', teacher_side_views.teacher_dashboard, name = "teacher_dashboard"),
+    path('doubts_submission/', student_side_views.doubts_submission, name = "doubts_submission"),
+    path('student_dashboard/', student_side_views.student_dashboard, name = "student_dashboard")
 ]

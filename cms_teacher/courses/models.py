@@ -16,9 +16,10 @@ class Subject (models.Model):
 class Course (models.Model):
     owner = models.ForeignKey(
         User, related_name='courses_created', on_delete=models.CASCADE)
-    Subject = models.ForeignKey(
+    subject = models.ForeignKey(
         Subject, related_name="courses", on_delete=models.CASCADE)
     title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     overview = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 

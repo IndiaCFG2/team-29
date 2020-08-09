@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 import pyrebase
+import random
 from django.contrib import auth
 firebaseConfig = {
 	  'apiKey': "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
@@ -51,3 +52,20 @@ def student_signup(request):
 def logout(request):
 	auth.logout(request)
 	return render(request, 'home.html')
+
+def student_dashboard(request):
+	if request.method == "POST":
+		pass
+def doubts_submission(request):
+	if request.method == "POST":
+		name = request.POST.get('name')
+		doubt = request.POST.get('doubt')
+		uid = random.randint(0, 100000000000000000)
+		data = {'answer' : '', 'doubts' : doubt, 'name' : name, 'id' : uid}
+		database.child("Doubts").child(uid).set(data)
+		return render(request, "student_dashboard.html")
+	else:
+		return render(request, "doubts.html")
+
+def student_dashboard(request):
+	return render(request, "student_dashboard.html")

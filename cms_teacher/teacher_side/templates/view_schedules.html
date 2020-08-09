@@ -4,6 +4,60 @@
 	<title>View Schedules</title>
   <style>
 
+<link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Discussion Tab</title>
+	<style type="text/css">
+	 .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #4caf50;
+        color: white;
+      }
+		.tabco2 {
+  font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
+th.tabco2 {
+    color: #fff;
+    background: #03A9F4;
+    padding: 20px 5px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.tabco3 {
+    font-family: 'Josefin Sans', sans-serif;
+  background: #C0C0C0;
+  text-align: center;
+  color: black;
+}
+
   .topnav {
         overflow: hidden;
         background-color: #333;
@@ -47,7 +101,8 @@
 </head>
 <body>
   <div class="topnav">
-      <a class="active" href="/teacher_dashboard/">Home</a>
+  <body style="background-color:#17a2b8;">
+  <a class="active" href="/teacher_dashboard/">Home</a>
       <a href="https://www.lend-a-hand-india.org/events.php">Events</a>
       <a href="https://www.lend-a-hand-india.org/write.php">Contact</a>
       <a href="https://www.lend-a-hand-india.org/about.php">About</a>
@@ -55,19 +110,19 @@
 	<table class="table table-condensed table-hover">
 	<thead>
 		<tr>
-			<th class="tabco2" >Date</th>
-			<th class="tabco3">Time</th>
-			<th class="tabco4" > Description </th>
-			<th class="tabco5" > Classroom </th>
+			<th >Date</th>
+			<th >Time</th>
+			<th > Description </th>
+			<th > Classroom </th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for i in schedule %}
 			<tr class = "row_format">
-				<td class = "tabco2">{{ i.date }}</td>
-				<td class = "tabco3">{{ i.time }}</td>
-		        <td class = "tabco4">{{ i.desc }}</td>
-		        <td class = "tabco5">{{ i.classroom }}</td>
+				<td >{{ i.date }}</td>
+				<td >{{ i.time }}</td>
+		        <td >{{ i.desc }}</td>
+		        <td >{{ i.classroom }}</td>
 			</tr>
 		{% endfor %}
 	</tbody>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <style>
-
-  .topnav {
+    <style>
+      .topnav {
         overflow: hidden;
         background-color: #333;
       }
@@ -26,21 +25,26 @@
         background-color: #4caf50;
         color: white;
       }
-  .form-control-borderless {
-    border: none;
-}
+      .form-control-borderless {
+        border: none;
+      }
 
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-}
-
-  </style>
+      .form-control-borderless:hover,
+      .form-control-borderless:active,
+      .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+    </style>
     <title>Teacher Dashboard</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body style="background-color:#17a2b8;">
   <div class="topnav">
@@ -72,62 +76,57 @@
                    style="border: 1px solid black; padding: 5px;"
                    required="required">
 
-             <button class="btn btn-primary" onclick="uploadPDF()">
-        Upload PDF File
-      </button>
+             <button class="btn btn-primary" onclick="uploadPDF()">Submit</button>
 
-</div>
-</div>
-</body>
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    </div>
+  </body>
 
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-storage.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
 
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
-        authDomain: "codeforgood-54cec.firebaseapp.com",
-        databaseURL: "https://codeforgood-54cec.firebaseio.com",
-        projectId: "codeforgood-54cec",
-        storageBucket: "codeforgood-54cec.appspot.com",
-        messagingSenderId: "953684615576",
-        appId: "1:953684615576:web:cb0ae9bb9d1e4bebcfcbed",
-        measurementId: "G-QEZS1EDTWK",
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDxZwUxJl8Peq1puSWw1jpSQsDQx-sLk6I",
+      authDomain: "codeforgood-54cec.firebaseapp.com",
+      databaseURL: "https://codeforgood-54cec.firebaseio.com",
+      projectId: "codeforgood-54cec",
+      storageBucket: "codeforgood-54cec.appspot.com",
+      messagingSenderId: "953684615576",
+      appId: "1:953684615576:web:cb0ae9bb9d1e4bebcfcbed",
+      measurementId: "G-QEZS1EDTWK",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    const ref = firebase.storage().ref();
+
+    function uploadPDF() {
+      const file = document.querySelector("#pdf").files[0];
+
+      const name = new Date() + "-" + file.name;
+
+      const metadata = {
+        contentType: file.type,
       };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
 
-      const ref = firebase.storage().ref();
+      const task = ref.child(name).put(file, metadata);
 
-      function uploadPDF() {
-        const file = document.querySelector("#pdf").files[0];
+      task
+        .then((snapshot) => snapshot.ref.getDownloadURL())
+        .then((url) => {
+          console.log(url);
+          alert("Document uploaded succesfully");
+        });
+    }
 
-        const name = new Date() + "-" + file.name;
-
-        const metadata = {
-          contentType: file.type,
-        };
-
-        const task = ref.child(name).put(file, metadata);
-
-        task
-          .then((snapshot) => snapshot.ref.getDownloadURL())
-          .then((url) => {
-            console.log(url);
-            alert("Document uploaded succesfully");
-          });
-      }
-
-      // var storage = firebase.storage();
-      // var storageRef = storage.ref();
-    </script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-
+    // var storage = firebase.storage();
+    // var storageRef = storage.ref();
+  </script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
 </html>
-

@@ -61,7 +61,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:id="@+id/class_name"
-            android:hint="Class Name"
+            android:hint="@string/class_name"
             android:layout_marginTop="20dp"
             app:met_floatingLabel="normal"/>
 
@@ -69,14 +69,14 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
             android:background="@drawable/roundshapebtn"
+            android:layout_gravity="center"
             android:text="Save"
-            android:textColor="@color/blue"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#FFFF"
             tools:ignore="RtlCompat" />
 
     </LinearLayout>
